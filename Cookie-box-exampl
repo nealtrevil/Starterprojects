@@ -1,0 +1,56 @@
+#include <iostream>
+//   lets user use cin, cout, and endl without std::
+using namespace std;
+//   begin main
+int main()
+{
+   //   declares constants
+   const int MAX_COOKIES = 24;
+   const int MAX_CONTAINERS = 75;
+
+   //   declares variables
+   int totalCookies, boxCookies, containerBoxes;
+   int totalBoxes = 0, totalContainers = 0;
+   int extraBoxes=0, extraCookies=0;
+
+   //   read number of cookies
+   cout << "Enter the total number of cookies: ";
+   cin >> totalCookies;
+
+   //   read number of cookies in a box
+   cout << "Enter the number of cookies in a box: ";
+   cin >> boxCookies;
+   //Validate the input
+   if (boxCookies<1 || boxCookies> MAX_COOKIES)
+   {
+       boxCookies = MAX_COOKIES;
+   }
+   //   read number of boxes in a container
+   cout << "Enter the number of boxes in the container: ";
+   cin >> containerBoxes;
+   //validate the input
+   if (containerBoxes<1 || containerBoxes> MAX_CONTAINERS)
+   {
+       containerBoxes = MAX_CONTAINERS;
+   }
+
+   cout << endl;
+
+   totalBoxes = totalCookies / boxCookies;
+   extraCookies= totalCookies % boxCookies;
+   totalContainers = totalBoxes / containerBoxes;
+   extraBoxes = totalBoxes %containerBoxes;
+   //   display the output
+   cout << "Number of boxes needed: "
+       << totalBoxes << endl;
+   cout << "Number of containers needed: "
+       << totalContainers << endl;
+   cout << "Number of leftover boxes needed: "
+       << extraBoxes << endl;
+   cout << "Number of leftover cookies needed: "
+       << extraCookies << endl;
+
+   //system("pause");
+   return 0;
+   //   end main
+}
